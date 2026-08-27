@@ -1,0 +1,60 @@
+{
+  "hosting": {
+    "site": "2mstudio",
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css|png|jpg|jpeg|gif|webp|svg|woff|woff2|otf|ttf)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+          }
+        ]
+      }
+    ]
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "anosh-846b0",
+          "appId": "1:989606367257:android:38928b0ed43318810b9a88",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "anosh-846b0",
+          "configurations": {
+            "android": "1:989606367257:android:38928b0ed43318810b9a88",
+            "ios": "1:989606367257:ios:69a79a0cc53f217e0b9a88",
+            "macos": "1:989606367257:ios:69a79a0cc53f217e0b9a88",
+            "web": "1:989606367257:web:eac82d0389005c660b9a88",
+            "windows": "1:989606367257:web:20be18d3e5c626670b9a88"
+          }
+        }
+      }
+    }
+  }
+}

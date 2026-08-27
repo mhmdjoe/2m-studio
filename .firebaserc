@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "anosh-846b0"
+  },
+  "targets": {
+    "anosh-846b0": {
+      "hosting": {
+        "main": [
+          "2mstudio"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

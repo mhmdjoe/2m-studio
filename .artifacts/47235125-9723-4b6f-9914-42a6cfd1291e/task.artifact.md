@@ -1,0 +1,119 @@
+# Task List - Advanced Photographer Portfolio Implementation
+
+- `[x]` **Phase 1: Project Setup & Infrastructure**
+    - `[x]` Update `pubspec.yaml` with dependencies (google_fonts, go_router, etc.)
+    - `[x]` Define `Project` model and mock data
+    - `[x]` Set up high-end Material 3 Theme
+    - `[x]` Configure basic Routing (`go_router`)
+- `[x]` **Phase 2: Core UI Components**
+    - `[x]` Responsive Navigation Bar
+    - `[x]` Modern Project Card with hover effects
+    - `[x]` Animated Service Workflow component
+- `[x]` **Phase 3: Main Pages Implementation**
+    - `[x]` Home Page (Video Hero + Featured Work)
+    - `[x]` Portfolio Page (Masonry Grid + Category Filtering)
+    - `[x]` About & Contact Pages
+- `[x]` **Phase 4: Advanced Features**
+    - `[x]` Interactive "Before/After" Retouching Slider
+    - `[x]` Client Portal UI Shell
+- `[x]` **Phase 5: Refinement & Verification**
+    - `[x]` Integrate "Anosh" Logo and update color palette (Red, White, Black)
+    - `[x]` Hero branding update and Contact Page implementation
+    - `[x]` Dedicated Booking & Simplified Contact implementation
+    - `[x]` Split Portfolio (Indoor & Outdoor) implementation
+    - `[x]` Enhanced Selection Cards (Icons + Animated Borders)
+    - `[x]` Advanced Scroll Animations & UI Polishing
+- `[x]` **Phase 6: Cinematic Loading Experience**
+    - `[x]` Create `loading_page.dart` with branded animations
+    - `[x]` Configure `GoRouter` initial route in `main.dart`
+    - `[x]` Implement auto-transition logic
+    - `[x]` Final walkthrough and documentation
+- `[x]` **Phase 7: Advanced Reveal Animations**
+    - `[x]` Create `HorizontalRevealWrapper` widget
+    - `[x]` Integrate reveal effect into "Elite Retouching" section
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 8: Dribbble-Style "Elite" Redesign
+    - `[x]` Update `app_theme.dart` with Editorial Typography & Glassmorphism helpers
+    - `[x]` Implement floating Glassmorphism `NavBar`
+    - `[x]` Create `BentoGrid` widget for asymmetrical layouts
+    - `[x]` Upgrade `ProjectCard` with Magnetic effects & Parallax
+    - `[x]` Refactor `home_page.dart` for Editorial look
+    - `[x]` Final walkthrough and documentation
+- `[x]` **Phase 9: Session Details & Editorial Consistency**
+    - `[x]` Create `project_detail_page.dart`
+    - `[x]` Configure Dynamic Routing & Hero Transitions in `main.dart`
+    - `[x]` Add navigation logic and `Hero` tags to `ProjectCard`
+    - `[x]` Refactor Section 03 in `home_page.dart` (Editorial consistency)
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 10: "Hyper-Premium" Refactor
+    - `[x]` Update `app_theme.dart` with Luxury Typography & Deep Palette
+    - `[x]` Implement `CustomCursor` global tracker
+    - `[x]` Create `MagneticWrapper` for tactile UI
+    - `[x]` Refactor `home_page.dart` with Scrollytelling & Parallax
+    - `[x]` Refine `BentoGrid` with Elastic Motion
+    - `[x]` Implement "Horizontal Split Slider" for Portfolio Selection
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 11: Visibility & Layout Refinement
+    - `[x]` Fix `CustomCursor` visibility and logic errors
+    - `[x]` Refine `app_theme.dart` (Reduce headline sizes, fix spacing)
+    - `[x]` Improve `home_page.dart` section arrangement
+    - `[x]` Final walkthrough and documentation
+- `[x]` **Phase 12: Cursor Fix & Portfolio Optimization**
+    - `[x]` Refactor `CustomCursor` for lag-free tracking and hide-on-init
+    - `[x]` Optimize `PortfolioPage` split slider logic
+    - `[x]` Break down `PortfolioPage` into modular components
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 13: Robust Interaction & Clicking Fix
+    - `[x]` Re-engineer `CustomCursor` using `ValueNotifier` for zero-lag
+    - `[x]` Implement robust hit-testing in `PortfolioSelectionView`
+    - `[x]` Fix clickable area overlap in split slider
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 14: Immersive Narrative List Refactor
+    - `[x]` Implement "Chameleon Background" reactive system
+    - `[x]` Refactor `PortfolioSelectionView` for Magazine-style typography
+    - `[x]` Add "Zoom-In" page transitions for portfolio entry
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 15: Transition Optimization & Freeze Fix
+    - `[x]` Pre-cache portfolio background images
+    - `[x]` Replace nested `AnimatedSwitcher` with `AnimatedOpacity` stack
+    - `[x]` Implement `_isTransitioning` logic to prevent state races
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 16: Deep Rendering Optimization
+    - `[x]` Implement `RepaintBoundary` for high-load sections
+    - `[x]` Simplify background rendering (Single active layer)
+    - `[x]` Refine state locking for transition windows
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 17: Performance-First Simplified Design
+    - `[x]` Implement `SimplifiedSelectionView` with static tiles
+    - `[x]` Remove Chameleon Background and complex split-ratio logic
+    - `[x]` Optimize image resolutions for selection screen
+    - `[x]` Verify zero-freeze performance
+    - `[x]` Final walkthrough and documentation
+- `[x]` Phase 19: Mobile & Touch Optimization
+    - `[x]` Disable Custom Cursor and Magnetic effects on touch devices
+    - `[x]` Implement Responsive Typography system
+    - `[x]` Refactor `BentoGrid` for 1-2 column mobile layout
+    - `[x]` Create Mobile Navigation Menu (Hamburger)
+    - `[x]` Responsive audit of all pages (Home, Portfolio, Booking, Contact)
+    - `[x]` Final walkthrough and documentation
+- `[x]` **Phase 21: Final Stability & "Zero-Jank" Refactor**
+    - `[x]` Implement `isGlobalLocked` in `cursorProvider` and `CustomCursor`
+    - `[x]` Aggressive `RepaintBoundary` isolation on `PortfolioPage`
+    - `[x]` Reduce image `cacheWidth` to optimized levels (500px-1000px)
+    - `[x]` Implement Progressive Content Reveal in `PortfolioSliverView`
+    - `[x]` Final walkthrough and documentation
+- `[x]` **Phase 20: Firebase Hosting Deployment**
+    - `[x]` Run production build (`flutter build web --release`)
+    - `[x]` Authenticate with Firebase (`firebase login`)
+    - `[x]` Initialize Firebase project (`firebase init`)
+    - `[x]` Deploy to Firebase Hosting
+    - `[x]` Final walkthrough and documentation
+- `[/]` **Phase 18: Critical Stability & Lazy Loading**
+    - `[ ]` Replace `MasonryGridView` with `SliverMasonryGrid` in `PortfolioGridView`
+    - `[ ]` Remove `shrinkWrap: true` and implement `CustomScrollView`
+    - `[ ]` Add `cacheWidth/Height` to all portfolio images
+    - `[ ]` Simplify `AppTheme.glassEffect` for better web performance
+    - `[ ]` Optimize `ProjectCard` for low-resource rendering
+    - `[ ]` Final walkthrough and documentation
+    - `[ ]` Responsiveness check
+    - `[ ]` Final walkthrough and documentation
