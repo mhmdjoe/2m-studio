@@ -66,67 +66,10 @@ class _NavBarState extends ConsumerState<NavBar> with SingleTickerProviderStateM
         return Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1400),
-            child: Stack(
-              clipBehavior: Clip.none,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                // 1. MOBILE DROPDOWN MENU (Placed behind the bar but expands below)
-                if (isMobile)
-                  Positioned(
-                    top: verticalMargin + 50,
-                    left: 15,
-                    right: 15,
-                    child: SizeTransition(
-                      sizeFactor: _menuAnimation,
-                      alignment: Alignment.topCenter,
-                      child: FadeTransition(
-                        opacity: _menuAnimation,
-                        child: AppTheme.glassEffect(
-                          opacity: 0.95,
-                          borderRadius: BorderRadius.circular(24),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 30),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                _MobileNavButton(label: 'HOME', path: '/home', onTap: () { context.go('/home'); _toggleMenu(); }),
-                                _MobileNavButton(label: 'ABOUT US', path: '/about', onTap: () { context.go('/about'); _toggleMenu(); }),
-                                _MobileNavButton(label: 'PORTFOLIO', path: '/portfolio', onTap: () { context.go('/portfolio'); _toggleMenu(); }),
-                                _MobileNavButton(label: 'CONTACT', path: '/contact', onTap: () { context.go('/contact'); _toggleMenu(); }),
-                                if (isAdmin)
-                                  _MobileNavButton(
-                                    label: 'LOGOUT (ADMIN)', 
-                                    path: '/logout', 
-                                    onTap: () { 
-                                      ref.read(adminNotifierProvider.notifier).logout(); 
-                                      _toggleMenu(); 
-                                    }
-                                  ),
-                                const SizedBox(height: 20),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                                  child: SizedBox(
-                                    width: double.infinity,
-                                    child: ElevatedButton(
-                                      onPressed: () { context.go('/booking'); _toggleMenu(); },
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: AppTheme.accentColor,
-                                        foregroundColor: Colors.black,
-                                        padding: const EdgeInsets.symmetric(vertical: 20),
-                                        shape: const StadiumBorder(),
-                                      ),
-                                      child: const Text('BOOK A SESSION', style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 2)),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                // 2. MAIN NAVBAR CAPSULE
+                // 1. MAIN NAVBAR CAPSULE
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.easeOutCubic,
@@ -185,6 +128,61 @@ class _NavBarState extends ConsumerState<NavBar> with SingleTickerProviderStateM
                     ),
                   ),
                 ),
+
+                // 2. MOBILE DROPDOWN MENU
+                if (isMobile)
+                  SizeTransition(
+                    sizeFactor: _menuAnimation,
+                    alignment: Alignment.topCenter,
+                    child: FadeTransition(
+                      opacity: _menuAnimation,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 0, 15, 20),
+                        child: AppTheme.glassEffect(
+                          opacity: 0.95,
+                          borderRadius: BorderRadius.circular(24),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 30),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                _MobileNavButton(label: 'HOME', path: '/home', onTap: () { context.go('/home'); _toggleMenu(); }),
+                                _MobileNavButton(label: 'ABOUT US', path: '/about', onTap: () { context.go('/about'); _toggleMenu(); }),
+                                _MobileNavButton(label: 'PORTFOLIO', path: '/portfolio', onTap: () { context.go('/portfolio'); _toggleMenu(); }),
+                                _MobileNavButton(label: 'CONTACT', path: '/contact', onTap: () { context.go('/contact'); _toggleMenu(); }),
+                                if (isAdmin)
+                                  _MobileNavButton(
+                                    label: 'LOGOUT (ADMIN)', 
+                                    path: '/logout', 
+                                    onTap: () { 
+                                      ref.read(adminNotifierProvider.notifier).logout(); 
+                                      _toggleMenu(); 
+                                    }
+                                  ),
+                                const SizedBox(height: 20),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                                  child: SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      onPressed: () { context.go('/booking'); _toggleMenu(); },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: AppTheme.accentColor,
+                                        foregroundColor: Colors.black,
+                                        padding: const EdgeInsets.symmetric(vertical: 20),
+                                        shape: const StadiumBorder(),
+                                      ),
+                                      child: const Text('BOOK A SESSION', style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 2)),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),
@@ -227,6 +225,7 @@ class _DesktopNavLinksState extends ConsumerState<_DesktopNavLinks> {
 
   void _updateIndicator() {
     if (!mounted) return;
+    
     final String currentPath = GoRouterState.of(context).uri.path;
     
     String? activePath;
