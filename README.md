@@ -1,56 +1,62 @@
-# 📸 2M Studio | Elite Photography Portfolio & Booking App
+# 2M Studio | Photography Portfolio & Booking App
 
-A premium, modern mobile and web portfolio application for **2M Studio**, designed for showcasing high-resolution photography, interactive before-and-after retouching comparisons, client session booking, and dynamic cloud portfolio management.
+A Flutter mobile and web application for a photography studio: a high-resolution portfolio gallery, an interactive before/after retouching showcase, and a client booking flow, with an admin area for managing the portfolio content through Firebase.
 
-👉 **[🌐 Launch Live Web App](https://mhmdjoe.github.io/2m-studio/)** (Try it live in your browser!)
+**Live web demo:** https://mhmdjoe.github.io/2m-studio/ (runs in the browser, no install needed)
 
----
+## What it does
 
-## 🌟 Key Features
+- **Portfolio gallery** - bento/masonry photo grid (`flutter_staggered_grid_view`) with a project detail page per shoot.
+- **Before / after retouching slider** - interactive comparison of raw vs retouched photos.
+- **Booking flow** - a session booking form that composes a WhatsApp message to the studio with the client's details (`url_launcher`).
+- **Admin content management** - an admin login (Firebase Authentication) unlocks adding and editing portfolio projects, stored in Cloud Firestore.
+- **Offline-safe data layer** - the gallery ships with seed content and merges in Firestore data when the backend is reachable, so the demo always renders.
 
-- 🌐 **Live Web Demo**: View and interact with the portfolio directly in your browser.
-- 🖼 **Staggered Photography Gallery**: Dynamic masonry photo grid powered by `flutter_staggered_grid_view`.
-- 🎚 **Interactive Before / After Retouching Slider**: Compare raw vs retouched photography in real time using `before_after_image_slider_nullsafty`.
-- 🔐 **Firebase Authentication & Cloud Storage**: Secure client login, appointment history, and Firebase Cloud Storage media management.
-- 📱 **Responsive & Smooth UI**: Fluid transitions via `animations` package and customized typography via `google_fonts`.
-- 🚀 **Reactive State Management**: Powered by `flutter_riverpod` and declarative routing with `go_router`.
-- 📞 **Client Booking & Direct Support**: Direct booking integration and WhatsApp / social communication via `url_launcher`.
+## Tech stack
 
----
-
-## 🛠 Tech Stack & Dependencies
-
-| Category | Technology |
+| Layer | Technology |
 | :--- | :--- |
-| **Framework** | Flutter (Dart SDK) & Flutter Web |
-| **Backend & Auth** | Firebase Core, Auth, Firestore, Firebase Storage |
-| **State Management** | `flutter_riverpod` |
-| **Routing** | `go_router` |
-| **Gallery & Layouts** | `flutter_staggered_grid_view` |
-| **Interactive Widgets** | `before_after_image_slider`, `animations` |
-| **Typography & Icons** | `google_fonts`, `font_awesome_flutter` |
+| Framework | Flutter (Dart 3.x), Android / iOS / Web |
+| Backend | Firebase Core, Firebase Auth, Cloud Firestore, Firebase Storage |
+| State management | `flutter_riverpod` |
+| Routing | `go_router` |
+| UI | `flutter_staggered_grid_view`, `before_after_image_slider`, `animations`, `google_fonts`, `font_awesome_flutter` |
 
----
+## Project structure
 
-## 🚀 Getting Started
+```text
+lib/
+├── main.dart                        # Entry point, Firebase init
+├── firebase_options.dart            # Generated Firebase config
+├── models/project.dart              # Project data model
+├── features/
+│   ├── admin/                       # Firestore repository + admin state (Riverpod)
+│   └── retouching_showcase/         # Before/after slider feature
+├── pages/
+│   ├── home_page.dart               # Landing page
+│   ├── portfolio_page.dart          # Gallery
+│   ├── project_detail_page.dart     # Single project view
+│   ├── booking_page.dart            # Booking form -> WhatsApp
+│   ├── about_page.dart, contact_page.dart
+│   └── admin/admin_login_page.dart  # Firebase Auth admin login
+└── widgets/                         # Navbar, bento grid, reveal animations, custom cursor
+```
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/mhmdjoe/2m-studio.git
-   cd 2m-studio
-   ```
+## Run it locally
 
-2. **Install dependencies**:
-   ```bash
-   flutter pub get
-   ```
+```bash
+git clone https://github.com/mhmdjoe/2m-studio.git
+cd 2m-studio
+flutter pub get
+flutter run            # or: flutter run -d chrome
+```
 
-3. **Run the project**:
-   ```bash
-   flutter run
-   ```
+The app runs without a Firebase backend by falling back to bundled sample projects. To connect your own Firebase project, replace `lib/firebase_options.dart` with the output of `flutterfire configure`.
 
----
+## Status
 
-## 📄 License
-This project is open-source under the [MIT License](LICENSE).
+Portfolio demo. The studio, photography, and contact details are sample content. Booking submits through WhatsApp rather than a server-side reservation system, and admin access is a single shared account rather than per-user roles.
+
+## License
+
+MIT
